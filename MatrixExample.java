@@ -40,13 +40,13 @@ public class MatrixExample {
         }
 
         // Some more issues here too
-        int[][] result = new int[rows1+1][cols2+1];
+        int[][] result = new int[rows1][cols2]; //not adding 1
 
         // Lots of issues with this code, it used to be working perfectly though
         for (int i = 0; i < rows1; i++) {
             for (int j = 0; j < cols2; j++) {
                 for (int k = 0; k < cols1; k++) {
-                    result[j][k] += matrix1[i][j] * matrix2[k][j];
+                    result[j][k] += matrix1[i][k] * matrix2[k][j]; //should be matrix1[i][k] instead of [i][j]
                 }
             }
         }
